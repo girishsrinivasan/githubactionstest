@@ -1,0 +1,16 @@
+name: Testing
+
+on: 
+ push:
+   branches: ["*"]
+
+jobs:
+  test:
+    name: 'Testing'
+    runs-on: [ self-hosted ]    
+    steps:
+      - name: 'Run Tests'
+        run: |
+          echo "Test have run"
+
+    
