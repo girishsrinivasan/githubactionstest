@@ -2,7 +2,8 @@ name: Check Pull Request Labels
 
 on: 
  pull_request:
-   branches: ["*"]
+  types:  
+    - opened 
 
 jobs:
   check-pr-labels:
