@@ -12,7 +12,7 @@ jobs:
         with:
           script: |
             const  labels = new Set( context.payload.pull_request.labels.map(x=>x.name) );
-            if( !labels.contains('My Label') ){
+            if( !labels.has('My Label') ){
                core.setFailed('Did not find the label My Label on the pull request')
             }
       
