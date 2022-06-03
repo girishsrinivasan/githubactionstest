@@ -1,6 +1,8 @@
 name: Check Pull Request Labels
 
-on: pull_request
+on: 
+  pull_request:
+    types: [opened,reopened,labeled,unlabeled]
 
 jobs:
   check-pr-labels:
