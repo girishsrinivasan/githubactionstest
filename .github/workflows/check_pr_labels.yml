@@ -1,0 +1,22 @@
+name: Check Pull Request Labels
+
+on: 
+ pull_request:
+   branches: ["*"]
+
+jobs:
+  check-pr-labels:
+    name: 'Check Labels'
+    runs-on:  ubuntu-latest 
+    steps:
+      - name: 'Check Labels'
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            if( !contains( github.event.pull_request.labels.*.name, 'My Label') ){
+               core.setFailed('Did not find the label My Label on the pull request')
+            }
+      
+        
+
+    
