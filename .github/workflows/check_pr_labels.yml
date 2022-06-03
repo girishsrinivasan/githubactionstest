@@ -11,7 +11,7 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const  labels = new Set( github.event.pull_request.labels.map(x=>x.name) );
+            const  labels = new Set( context.payload.pull_request.labels.map(x=>x.name) );
             if( !labels.contains('My Label') ){
                core.setFailed('Did not find the label My Label on the pull request')
             }
