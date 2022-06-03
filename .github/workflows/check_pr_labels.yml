@@ -12,8 +12,8 @@ jobs:
         with:
           script: |
             const  labels = new Set( context.payload.pull_request.labels.map(x=>x.name) );
-            if( !labels.has('My Label') ){
-               core.setFailed('Did not find the label My Label on the pull request')
+            if( !labels.has('bug') && !labels.has('enhancement') ){
+               core.setFailed('Did not find the label bug/enhancement on the pull request')
             }
       
         
