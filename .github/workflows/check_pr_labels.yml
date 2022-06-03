@@ -12,6 +12,7 @@ jobs:
         with:
           script: |
             const  labels = new Set( context.payload.pull_request.labels.map(x=>x.name) );
+            labels.foreach( x=> console.log(x))
             if( !labels.has('bug') && !labels.has('enhancement') ){
                core.setFailed('Did not find the label bug/enhancement on the pull request')
             }
