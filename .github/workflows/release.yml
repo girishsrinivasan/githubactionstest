@@ -1,0 +1,11 @@
+on:
+  workflow_call:
+    
+jobs:
+  new_release:
+    name: 'Create a new github release'
+    runs-on:  ubuntu-latest 
+    steps:
+      - name: 'Create a new github release'
+        run: |
+          echo "Release created"
