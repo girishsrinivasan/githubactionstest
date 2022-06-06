@@ -30,8 +30,6 @@ jobs:
     needs: [ci]
     if: github.ref == 'refs/heads/main'
     steps:
-      - name: 'Create a new github release'
-        run: |
-          echo "Release created"
+      - uses: ./.github/workflows/release.yml
 
     
