@@ -6,6 +6,5 @@ jobs:
     name: 'Create a new github release'
     runs-on:  ubuntu-latest 
     steps:
-      - name: 'Create a new github release'
-        run: |
-          echo "Release created"
+        - run: |
+           echo "Release created"
