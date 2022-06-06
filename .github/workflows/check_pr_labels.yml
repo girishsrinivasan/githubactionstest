@@ -1,8 +1,8 @@
 name: Check Pull Request Labels
 
 on: 
- pull_request:
-   branches: ["*"]
+  pull_request:
+    types: [opened,reopened,labeled,unlabeled]
 
 jobs:
   check-pr-labels:
@@ -10,11 +10,13 @@ jobs:
     runs-on:  ubuntu-latest 
     steps:
       - name: 'Check Labels'
-      - uses: actions/github-script@v6
+        uses: actions/github-script@v6
         with:
           script: |
-            if( !contains( github.event.pull_request.labels.*.name, 'My Label') ){
-               core.setFailed('Did not find the label My Label on the pull request')
+            const  labels = new Set( context.payload.pull_request.labels.map(x=>x.name) );
+            // labels.forEach( x=> console.log(x))
+            if( !labels.has('bug') && !labels.has('enhancement') ){
+               core.setFailed('Did not find the label bug/enhancement on the pull request')
             }
       
         
