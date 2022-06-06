@@ -1,0 +1,35 @@
+name: CI
+
+on: 
+ push:
+   branches: ["*"]
+
+jobs:
+  build:
+    name: 'Building'
+    runs-on:  ubuntu-latest 
+    steps:
+      - name: 'Build'
+        run: |
+          echo "Starting Build"
+          sleep 3
+          echo "Build complete"
+
+  test:
+    name: 'Testing'
+    runs-on:  ubuntu-latest 
+    needs: [build]
+    steps:
+      - name: 'Run Tests'
+        run: |
+          echo "Tests complete"
+
+  new_release:
+    name: 'Create a new release'
+    runs-on:  ubuntu-latest 
+    needs: [test]
+    steps:
+      - name: 'Create a new release'
+        run: |
+          echo "Release created"
+    
