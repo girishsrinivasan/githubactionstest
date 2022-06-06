@@ -26,6 +26,7 @@ jobs:
           
   new_release:
     uses: ./.github/workflows/release.yml
+    name: 'New Release'
     needs: [ci]
     if: github.ref == 'refs/heads/main'
     

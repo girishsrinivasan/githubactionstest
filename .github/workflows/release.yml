@@ -3,8 +3,9 @@ on:
     
 jobs:
   new_release:
-    name: 'Create a new github release'
+    name: 'Create Release'
     runs-on:  ubuntu-latest 
     steps:
-        - run: |
-           echo "Release created"
+      - name: 'Create a new github release'
+        run: |
+          echo "Release created"
